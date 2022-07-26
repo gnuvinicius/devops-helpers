@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: logsaledb
+    environment:
+      POSTGRES_DB: "logsaledb-dev"
+      POSTGRES_USER: "logSaledbuser"
+      POSTGRES_PASSWORD: "2AkByM4NfHFkeJz"
+      ALLOW_EMPTY_PASSWORD: "no"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "root@garage474.dev"
+      PGADMIN_DEFAULT_PASSWORD: "PgAdmin2022!"
+    ports:
+      - "16543:80"
+    depends_on:
+      - db
+
+volumes:
+  postgresql_data:
