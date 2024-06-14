@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  mssql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: always
+    container_name: saledb
+    environment:
+      SA_PASSWORD: "2AkByM4NfHFkeJz"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/lib/mssqlql/data
+
+volumes:
+  mssql_data:
