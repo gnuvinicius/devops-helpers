@@ -1,2 +1,5 @@
 .vagrant
 *.log
+
+*pgdata/
+*rabbitmq_data/
